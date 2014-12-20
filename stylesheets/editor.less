@@ -1,0 +1,41 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+
+atom-text-editor.editor.mini {
+  line-height: 40px;
+  max-height: 40px;
+  margin-bottom: 0
+}
+.editor.mini {
+  color: @text-color;
+  background-color: @input-background-color;
+  border-radius: @component-border-radius;
+  padding-left: @component-padding/2;
+
+  .placeholder-text {
+    color: @text-color-subtle;
+  }
+  .cursor {
+    border-color: @light-grey;
+    border-width: 4px;
+  }
+  .selection .region { background-color: lighten(@input-nofocus-color, 10%); }
+}
+
+.editor.editor-colors.mini.is-focused {
+  .selection .region { background-color: lighten(@input-selected-color, 5%);
+                      border-radius: .2em; }
+  transition: background-color 0.1s
+}
+
+@-webkit-keyframes highlight {
+  from { background-color: rgba(100, 255, 100, 0.7); }
+  to { background-color: null; }
+}
+
+.editor .highlighted.selection .region {
+  -webkit-animation-name: highlight;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+}

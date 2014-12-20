@@ -1,0 +1,44 @@
+@import "ui-variables";
+
+atom-panel.modal {
+  padding: 0;
+}
+
+.overlay {
+  color: @text-color;
+  background-color: @overlay-background-color;
+  padding: @component-padding;
+  border-radius: @component-border-radius;
+
+  .editor.mini {
+    background-color: @input-background-color;
+    margin-bottom: 0;
+  }
+
+  .select-list ol.list-group,
+  &.select-list ol.list-group {
+
+    background-color: @primary-dark;
+    margin-top: 0;
+
+    li {
+      padding: @component-padding;
+
+      &.two-lines { padding: @component-padding/2 @component-padding; }
+
+      .status.icon {
+        float: right;
+        margin-left: @component-icon-padding;
+        &:before {
+          margin-right: 0;
+        }
+      }
+
+      &.selected {
+        .status.icon {
+          color: @text-color-selected;
+        }
+      }
+    }
+  }
+}
