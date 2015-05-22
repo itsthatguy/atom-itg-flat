@@ -1,0 +1,34 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.itg.flat.dark {
+}
+
+// theming Terminal Status
+.cli-status {
+  .panel-heading {
+    background: @primary-color;
+
+    .btn {
+      background: darken(@primary-color, 5%);
+      line-height: 5px;
+
+      span {
+        font-size: 14px;
+        font-family: @font-family;
+      }
+
+      &:hover {
+        background: darken(@primary-color, 10%);
+        color: white;
+      }
+      &:active {
+        background: darken(@primary-color, 17%);
+        color: darken(white, 12%);
+      }
+    }
+  }
+}
