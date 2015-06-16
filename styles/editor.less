@@ -2,17 +2,17 @@
 @import "ui-mixins";
 
 
-atom-text-editor.editor.mini {
+atom-text-editor[mini] {
   line-height: 40px;
   max-height: 40px;
-  margin-bottom: 0
-}
-.editor.mini {
+  margin-bottom: 0;
   color: @text-color;
   background-color: @input-background-color;
   border-radius: @component-border-radius;
   padding-left: @component-padding/2;
+}
 
+atom-text-editor[mini]::shadow {
   .placeholder-text {
     color: @text-color-subtle;
   }
@@ -21,12 +21,13 @@ atom-text-editor.editor.mini {
     border-width: 4px;
   }
   .selection .region { background-color: lighten(@input-nofocus-color, 10%); }
-}
-
-.editor.editor-colors.mini.is-focused {
-  .selection .region { background-color: lighten(@input-selected-color, 5%);
-                      border-radius: .2em; }
-  transition: background-color 0.1s
+  .is-focused {
+    transition: background-color 0.1s;
+    .selection .region {
+      background-color: lighten(@input-selected-color, 5%);
+      border-radius: .2em;
+    }
+  }
 }
 
 @-webkit-keyframes highlight {
@@ -34,8 +35,35 @@ atom-text-editor.editor.mini {
   to { background-color: null; }
 }
 
-.editor .highlighted.selection .region {
+atom-text-editor .highlighted.selection .region {
   -webkit-animation-name: highlight;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: 1;
+}
+
+
+// theming Terminal Status
+.cli-status {
+  .panel-heading {
+    background: @primary-color;
+
+    .btn {
+      background: darken(@primary-color, 5%);
+      line-height: 5px;
+
+      span {
+        font-size: 14px;
+        font-family: @font-family;
+      }
+
+      &:hover {
+        background: darken(@primary-color, 10%);
+        color: white;
+      }
+      &:active {
+        background: darken(@primary-color, 17%);
+        color: darken(white, 12%);
+      }
+    }
+  }
 }

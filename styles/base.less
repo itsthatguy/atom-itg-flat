@@ -1,13 +1,11 @@
 @import "syntax-variables";
 
-.editor-colors {
+atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 }
 
-.editor {
-  background-color: @syntax-background-color;
-  color: @syntax-text-color;
+atom-text-editor::shadow {
 
   .wrap-guide {
     background-color: @syntax-wrap-guide-color;
@@ -54,15 +52,16 @@
   .selection .region {
     background-color: @syntax-selection-color;
   }
-}
 
-.editor .search-results .marker .region {
-  background-color: transparent;
-  border: 1px solid @syntax-result-marker-color;
-}
-
-.editor .search-results .marker.current-result .region {
-  border: 1px solid @syntax-result-marker-color-selected;
+  .search-results .marker {
+    .region {
+      background-color: transparent;
+      border: 1px solid @syntax-result-marker-color;
+    }
+    &.current-result .region {
+      border: 1px solid @syntax-result-marker-color-selected;
+    }
+  }
 }
 
 .comment {
@@ -308,6 +307,6 @@
   }
 }
 
-.editor.mini .scroll-view {
+atom-text-editor[mini] .scroll-view {
   padding-left: 1px;
 }
