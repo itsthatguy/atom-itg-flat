@@ -1,7 +1,6 @@
 @import "ui-variables";
 @import "ui-mixins";
 
-
 atom-text-editor[mini] {
   line-height: 40px;
   max-height: 40px;
@@ -41,6 +40,18 @@ atom-text-editor .highlighted.selection .region {
   -webkit-animation-iteration-count: 1;
 }
 
+// find/replace background highlight colors
+atom-text-editor::shadow .highlight {
+  &.find-result .region {
+    background: @find-result-background-color;
+    border: 1px dashed @find-result-border-color;
+  }
+  &.current-result .region,
+  &.current-result ~ .highlight.selection .region {
+    background: @find-result-current-background-color; // to distinguish from the other results
+    border: 1px dashed @find-result-current-border-color;
+  }
+}
 
 // theming Terminal Status
 .cli-status {

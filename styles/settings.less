@@ -1,0 +1,74 @@
+@import "ui-variables";
+
+.settings-view {
+    // side nav
+    .config-menu {
+        // selected tab
+        .nav > li.active > a {
+            color: white;
+            font-weight: 200;
+        }
+        // icon color for non-selected tabs
+        li:not(.active) .icon:before {
+            color: lighten(@primary-color, 5%);
+        }
+        // hover effect for non-selected tab text & icon
+        .nav > li:not(.active) > a:hover {
+            color: lighten(@light-grey, 20%);
+
+            &:before {
+                color: @primary-color;
+            }
+        }
+    }
+
+    // section headings
+    section .section-heading,
+    .section .section-heading {
+        color: white;
+    }
+
+    // select box
+    select.form-control {
+        border: 1px solid @primary-color;
+        background: @primary-color;
+        color: @white;
+
+        &:hover, &:focus, &:visited {
+            background: lighten(@primary-color, 5%);
+        }
+    }
+
+    .card-name a { .link-color }
+    .package-card {
+        .meta-user .author { .link-color }
+        .stats .stats-item .icon { color: lighten(@primary-color, 5%); }
+    }
+    .link { .link-color }
+
+    .btn {
+        &:hover {
+            background: @primary-color;
+            color: white;
+        }
+        &.selected {
+            background: @light-grey;
+            color: white;
+        }
+    }
+
+    .alert-info {
+        color: @white;
+        background: @light-grey;
+        border: none;
+    }
+}
+
+// re-usable link coloring
+.link-color {
+    color: @primary-color;
+    &:hover {
+        text-decoration: none;
+        color: lighten(@primary-color, 5%);
+    }
+}
